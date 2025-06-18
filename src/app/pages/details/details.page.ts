@@ -1,27 +1,57 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { IonContent, IonIcon, IonHeader,IonGrid, IonCol, IonRow,IonFab, IonFabButton } from '@ionic/angular/standalone';
 import { TopbarComponent } from "../../components/topbar/topbar.component";
 import { ActivatedRoute } from '@angular/router';
+import { PokemonDetails, PokemonService, PokemonSpecies } from 'src/app/services/pokemon.service';
+import { addIcons } from 'ionicons';
+import { heartOutline } from 'ionicons/icons';
+import { PokemonDetailsCardComponent } from "../../components/pokemon-details-card/pokemon-details-card.component";
+import { PokemonStatsCardComponent } from "../../components/pokemon-stats-card/pokemon-stats-card.component";
 
 @Component({
   selector: 'app-details',
   templateUrl: './details.page.html',
   styleUrls: ['./details.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, TopbarComponent]
+  imports: [IonHeader, IonIcon, IonContent, IonGrid, IonCol, IonRow, IonFab, IonFabButton, CommonModule, FormsModule, TopbarComponent, PokemonDetailsCardComponent, PokemonStatsCardComponent]
 })
 export class DetailsPage implements OnInit {
 
   pokemonName?: string;
+  pokemonDetails?: PokemonDetails;
+  pokemonSpecies?: PokemonSpecies;
+  description = '';
 
   constructor(
     private route: ActivatedRoute,
-  ) {}
+    private pokemonService: PokemonService
+  ) {
+    addIcons({ heartOutline });
+  }
 
   ngOnInit(): void {
     this.pokemonName = this.route.snapshot.paramMap.get('name') || undefined;
+    if (this.pokemonName) {
+      this.loadPokemonData(this.pokemonName);
+    }
+  }
+
+  loadPokemonData(pokemonName: string): void {
+    this.pokemonService.getPokemonByName(pokemonName).subscribe(details => {
+      this.pokemonDetails = details;
+    });
+
+    this.pokemonService.getPokemonSpecies(pokemonName).subscribe(species => {
+      this.pokemonSpecies = species;
+      this.description = this.getEnglishDescription(species.flavor_text_entries);
+    });
+  }
+
+  private getEnglishDescription(entries: any[]): string {
+    const entry = entries.find(e => e.language.name === 'en');
+    return entry ? entry.flavor_text.replace(/\f/g, ' ') : 'Descrição indisponível.';
   }
 
 }

@@ -1,0 +1,29 @@
+.pokemon-image {
+  width: 50%;
+  margin: 0 auto;
+  display: block;
+}
+
+.type-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.chips-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.type-chip {
+  height: auto;
+}
+
+ion-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

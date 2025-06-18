@@ -2,10 +2,24 @@
   <app-topbar [title]="pokemonName"></app-topbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">details</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content fullscreen class="ion-padding">
+  <ion-grid class="page-content full-height">
+    <ion-row class="ion-justify-content-center equal-height ">
+      <!-- Card 1 -->
+      <ion-col size="12" size-md="4">
+        <app-pokemon-details-card [pokemonDetails]="pokemonDetails" [description]="description">
+          </app-pokemon-details-card>
+      </ion-col>
+
+      <!-- Card 2 -->
+      <ion-col size="12" size-md="8">
+        <app-pokemon-stats-card [pokemonDetails]="pokemonDetails"></app-pokemon-stats-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="heart-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

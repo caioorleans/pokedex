@@ -7,6 +7,23 @@ export interface Pokemon {
   image: string;
 }
 
+export interface PokemonDetails {
+  name: string;
+  types: { type: { name: string } }[];
+  sprites: { front_default: string };
+  stats: { base_stat: number; stat: { name: string } }[];
+  height: number;
+  weight: number;
+  abilities: { ability: { name: string } }[];
+}
+
+export interface PokemonSpecies {
+  flavor_text_entries: Array<{
+    flavor_text: string;
+    language: { name: string };
+  }>;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -29,5 +46,13 @@ export class PokemonService {
         })
       )
     );
+  }
+
+  getPokemonByName(name: string): Observable<PokemonDetails> {
+    return this.http.get<PokemonDetails>(`${this.baseUrl}/${name}`);
+  }
+
+  getPokemonSpecies(name: string): Observable<PokemonSpecies> {
+    return this.http.get<PokemonSpecies>(`${this.baseUrl}-species/${name}`);
   }
 }
