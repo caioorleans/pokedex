@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IonToolbar, IonHeader, IonTitle } from '@ionic/angular/standalone';
+import { IonToolbar, IonTitle } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-topbar',

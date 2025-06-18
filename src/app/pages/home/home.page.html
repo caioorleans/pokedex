@@ -7,10 +7,15 @@
   <ion-grid class="page-content">
     <ion-row>
       <ion-col size="12" size-md="6" size-lg="3" *ngFor="let pokemon of pokemons()">
-        <app-pokemon-card  [pokemon]="pokemon"></app-pokemon-card>
+        <app-pokemon-card [pokemon]="pokemon"></app-pokemon-card>
       </ion-col>
     </ion-row>
   </ion-grid>
+  
+  <ion-infinite-scroll (ionInfinite)="loadMore($event)" threshold="100px">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Carregando mais pokémons...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 
   <ion-text *ngIf="pokemons().length === 0">
     <p>Carregando pokémons...</p>
