@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { Pokemon } from 'src/app/services/pokemon.service';
 
@@ -9,12 +10,14 @@ import { Pokemon } from 'src/app/services/pokemon.service';
   styleUrls: ['./pokemon-card.component.scss'],
   imports: [CommonModule, IonicModule],
 })
-export class PokemonCardComponent  implements OnInit {
+export class PokemonCardComponent{
 
   @Input() pokemon!: Pokemon;
 
-  constructor() { }
+  constructor(private router: Router) {}
 
-  ngOnInit() {}
+  goToDetails(name: string) {
+    this.router.navigate(['details', name]);
+  }
 
 }

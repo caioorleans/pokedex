@@ -1,4 +1,4 @@
-<ion-card>
+<ion-card (click)="goToDetails(pokemon.name)">
   <div class="card-content">
     <ion-img [src]="pokemon.image" [alt]="pokemon.name"></ion-img>
     <ion-card-header>
