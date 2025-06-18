@@ -1,2 +1,10 @@
-// For information on how to create your own theme, please see:
-// http://ionicframework.com/docs/theming/
+ion-toolbar {
+  --background: var(--ion-color-vermelho);
+  --color: var(--ion-color-vermelho-contrast);
+}
+
+:root {
+  --ion-color-vermelho: #d00000;
+  --ion-color-vermelho-contrast: #ffffff;
+}
+
