@@ -5,6 +5,7 @@ import { IonContent, IonHeader, IonText } from '@ionic/angular/standalone';
 import { TopbarComponent } from "../../components/topbar/topbar.component";
 import { PokemonCardListComponent } from "../../components/pokemon-card-list/pokemon-card-list.component";
 import { Pokemon } from 'src/app/services/pokemon.service';
+import { FavoritesService } from 'src/app/services/favorites.service';
 
 @Component({
   selector: 'app-favorites',
@@ -17,9 +18,10 @@ export class FavoritesPage implements OnInit {
 
   pokemons = signal<Pokemon[]>([]);
 
-  constructor() { }
+  constructor(private favoriteService:FavoritesService) { }
 
   ngOnInit() {
+    this.pokemons.set(this.favoriteService.getFavorites());
   }
 
 }
