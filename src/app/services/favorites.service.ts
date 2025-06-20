@@ -29,8 +29,8 @@ export class FavoritesService {
     return favorites ? JSON.parse(favorites) : [];
   }
 
-  existsInFavorites(pokemon: Pokemon): boolean {
+  existsInFavorites(pokemonName:String): boolean {
     const favorites = this.getFavorites();
-    return favorites.some(fav => fav.name === pokemon.name);
+    return favorites.some(fav => fav.name === pokemonName);
   }
 }
