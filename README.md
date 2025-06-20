@@ -24,7 +24,7 @@ Este projeto foi desenvolvido como parte de um desafio técnico para uma entrevi
 
 ## 🔜 O que falta implementar
 
-- Alguns testes unitários
+- Testes unitários
 
 ## 🛠️ Como rodar o projeto
 
@@ -38,5 +38,3 @@ ionic serve
 ## ⚠️ Aviso
 
 > Este projeto ainda está em construção! Novas funcionalidades serão adicionadas em breve. Fique à vontade para sugerir melhorias ou contribuir! 🚧
-
-![Pokeball](https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeball.png)
