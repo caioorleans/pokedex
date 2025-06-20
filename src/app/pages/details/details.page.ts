@@ -6,9 +6,10 @@ import { TopbarComponent } from "../../components/topbar/topbar.component";
 import { ActivatedRoute } from '@angular/router';
 import { PokemonDetails, PokemonService, PokemonSpecies } from 'src/app/services/pokemon.service';
 import { addIcons } from 'ionicons';
-import { heartOutline } from 'ionicons/icons';
+import { heart, heartOutline } from 'ionicons/icons';
 import { PokemonDetailsCardComponent } from "../../components/pokemon-details-card/pokemon-details-card.component";
 import { PokemonStatsCardComponent } from "../../components/pokemon-stats-card/pokemon-stats-card.component";
+import { FavoritesService } from 'src/app/services/favorites.service';
 
 @Component({
   selector: 'app-details',
@@ -24,17 +25,21 @@ export class DetailsPage implements OnInit {
   pokemonSpecies?: PokemonSpecies;
   description = '';
 
+  isFavorite = false;
+
   constructor(
     private route: ActivatedRoute,
-    private pokemonService: PokemonService
+    private pokemonService: PokemonService,
+    private favoriteService: FavoritesService
   ) {
-    addIcons({ heartOutline });
+    addIcons({ heartOutline, heart });
   }
 
   ngOnInit(): void {
     this.pokemonName = this.route.snapshot.paramMap.get('name') || undefined;
     if (this.pokemonName) {
       this.loadPokemonData(this.pokemonName);
+      this.isFavorite = this.favoriteService.existsInFavorites(this.pokemonName);
     }
   }
 

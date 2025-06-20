@@ -17,9 +17,13 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+  <ion-fab *ngIf="pokemonDetails" horizontal="end" vertical="bottom" slot="fixed">
     <ion-fab-button>
-      <ion-icon name="heart-outline"></ion-icon>
+      @if (isFavorite) {
+        <ion-icon name="heart"></ion-icon>
+      } @else {
+        <ion-icon name="heart-outline"></ion-icon>
+      }
     </ion-fab-button>
   </ion-fab>
 </ion-content>
