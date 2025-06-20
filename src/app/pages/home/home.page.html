@@ -4,13 +4,7 @@
 
 <ion-content [fullscreen]="true">
 
-  <ion-grid class="page-content">
-    <ion-row>
-      <ion-col size="12" size-md="6" size-lg="3" *ngFor="let pokemon of pokemons()">
-        <app-pokemon-card [pokemon]="pokemon"></app-pokemon-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <app-pokemon-card-list [pokemons]="pokemons()"></app-pokemon-card-list>
   
   <ion-infinite-scroll (ionInfinite)="loadMore($event)" threshold="100px">
     <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Carregando mais pokémons...">
