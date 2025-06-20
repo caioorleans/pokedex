@@ -19,11 +19,11 @@ Este projeto foi desenvolvido como parte de um desafio técnico para uma entrevi
 - Redirecionamento para página de detalhes do Pokémon
 - Exibição de detalhes: nome, imagem, descrição, tipos e stats
 - Layout responsivo para diferentes orientações de dispositivos
+- Função de favoritar Pokémons ⭐
+- Acesso à lista de favoritos
 
 ## 🔜 O que falta implementar
 
-- Função de favoritar Pokémons ⭐
-- Acesso à lista de favoritos
 - Alguns testes unitários
 
 ## 🛠️ Como rodar o projeto
