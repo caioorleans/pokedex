@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal, WritableSignal } from '@angular/core';
 import { Pokemon,} from './pokemon.service';
 
 @Injectable({
@@ -7,6 +7,7 @@ import { Pokemon,} from './pokemon.service';
 export class FavoritesService {
 
   key = 'favorites';
+  private favoritesSignal: WritableSignal<Pokemon[]> = signal(this.getFavorites());
 
   constructor() { }
 
@@ -27,6 +28,10 @@ export class FavoritesService {
   getFavorites(): Pokemon[] {
     const favorites = localStorage.getItem(this.key);
     return favorites ? JSON.parse(favorites) : [];
+  }
+
+  getFavoritesSignal(): WritableSignal<Pokemon[]> {
+    return this.favoritesSignal;
   }
 
   existsInFavorites(pokemonName:String): boolean {

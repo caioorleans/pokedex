@@ -18,9 +18,17 @@ export class FavoritesPage implements OnInit {
 
   pokemons = signal<Pokemon[]>([]);
 
-  constructor(private favoriteService:FavoritesService) { }
+  constructor(private favoriteService: FavoritesService) {}
 
   ngOnInit() {
+    this.loadFavorites();
+  }
+
+  ionViewWillEnter() {
+    this.loadFavorites();
+  }
+
+  private loadFavorites() {
     this.pokemons.set(this.favoriteService.getFavorites());
   }
 
