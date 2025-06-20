@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonContent, IonIcon, IonHeader,IonGrid, IonCol, IonRow,IonFab, IonFabButton } from '@ionic/angular/standalone';
 import { TopbarComponent } from "../../components/topbar/topbar.component";
 import { ActivatedRoute } from '@angular/router';
-import { PokemonDetails, PokemonService, PokemonSpecies } from 'src/app/services/pokemon.service';
+import { Pokemon, PokemonDetails, PokemonService, PokemonSpecies } from 'src/app/services/pokemon.service';
 import { addIcons } from 'ionicons';
 import { heart, heartOutline } from 'ionicons/icons';
 import { PokemonDetailsCardComponent } from "../../components/pokemon-details-card/pokemon-details-card.component";
@@ -57,6 +57,21 @@ export class DetailsPage implements OnInit {
   private getEnglishDescription(entries: any[]): string {
     const entry = entries.find(e => e.language.name === 'en');
     return entry ? entry.flavor_text.replace(/\f/g, ' ') : 'Descrição indisponível.';
+  }
+
+  toggleFavorite(): void {
+    if (this.pokemonDetails) {
+      var pokemon:Pokemon = {
+        name: this.pokemonDetails.name,
+        image: this.pokemonDetails.sprites.front_default,
+      };
+      if (this.isFavorite) {
+        this.favoriteService.removeFromFavorites(pokemon);
+      } else {
+        this.favoriteService.addToFavorites(pokemon);
+      }
+      this.isFavorite = !this.isFavorite;
+    }
   }
 
 }
