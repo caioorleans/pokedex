@@ -1,16 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonText } from '@ionic/angular/standalone';
+import { TopbarComponent } from "../../components/topbar/topbar.component";
+import { PokemonCardListComponent } from "../../components/pokemon-card-list/pokemon-card-list.component";
+import { Pokemon } from 'src/app/services/pokemon.service';
 
 @Component({
   selector: 'app-favorites',
   templateUrl: './favorites.page.html',
   styleUrls: ['./favorites.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonContent, IonHeader, IonText, CommonModule, FormsModule, TopbarComponent, PokemonCardListComponent]
 })
 export class FavoritesPage implements OnInit {
+
+  pokemons = signal<Pokemon[]>([]);
 
   constructor() { }
 

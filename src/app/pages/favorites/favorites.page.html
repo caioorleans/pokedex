@@ -1,13 +1,13 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>favorites</ion-title>
-  </ion-toolbar>
+  <app-topbar [title]="'favorites'"></app-topbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">favorites</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <app-pokemon-card-list [pokemons]="pokemons()"></app-pokemon-card-list>
+  <div *ngIf="pokemons().length === 0" class="empty-state">
+    <ion-text>
+      <h1>No favorite Pokémon yet</h1>
+      <h4>Start adding some now!</h4>
+    </ion-text>
+  </div>
 </ion-content>
