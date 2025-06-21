@@ -12,6 +12,11 @@ Este projeto foi desenvolvido como parte de um desafio técnico para uma entrevi
 - RxJS
 - PokeAPI
 
+## 🌐 Acesse Online
+
+Acesse a Pokedex diretamente pelo navegador:  
+[https://caioorleans.github.io/pokedex/](https://caioorleans.github.io/pokedex/)
+
 ## 🎥 Demonstração
 
 ### 🏠 Tela Inicial
@@ -24,6 +29,8 @@ Este projeto foi desenvolvido como parte de um desafio técnico para uma entrevi
 
 ![Tela de Detalhes](src/assets/gifs/details-screen.gif)
 
+---
+
 ## ✅ Funcionalidades Implementadas
 
 - Página inicial com listagem de Pokémons usando dados da PokeAPI
@@ -33,6 +40,7 @@ Este projeto foi desenvolvido como parte de um desafio técnico para uma entrevi
 - Layout responsivo para diferentes orientações de dispositivos
 - Função de favoritar Pokémons ⭐
 - Acesso à lista de favoritos
+- **Deploy automático via GitHub Actions para GitHub Pages**
 
 ## 🔜 O que falta implementar
 
