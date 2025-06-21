@@ -1,7 +1,5 @@
 <ion-card  class="full-height" *ngIf="pokemonDetails">
-  <ion-card-header>
-    <ion-card-title>{{ pokemonDetails.name | titlecase }}</ion-card-title>
-  </ion-card-header>
+  <ion-card-header></ion-card-header>
 
   <ion-img [src]="pokemonDetails.sprites.front_default" [alt]="pokemonDetails.name" 
     class="pokemon-image" [ngClass]="'glow-' + pokemonDetails.types[0].type.name.toLowerCase()"></ion-img>
