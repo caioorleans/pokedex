@@ -12,6 +12,18 @@ Este projeto foi desenvolvido como parte de um desafio técnico para uma entrevi
 - RxJS
 - PokeAPI
 
+## 🎥 Demonstração
+
+### 🏠 Tela Inicial
+
+![Tela Inicial](src/assets/gifs/home-screen.gif)
+
+---
+
+### 📄 Tela de Detalhes
+
+![Tela de Detalhes](src/assets/gifs/details-screen.gif)
+
 ## ✅ Funcionalidades Implementadas
 
 - Página inicial com listagem de Pokémons usando dados da PokeAPI
