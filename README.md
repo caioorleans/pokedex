@@ -57,4 +57,4 @@ ionic serve
 
 ## ⚠️ Aviso
 
-> Este projeto ainda está em construção! Novas funcionalidades serão adicionadas em breve. Fique à vontade para sugerir melhorias ou contribuir! 🚧
+> Este projeto ainda está em construção! Novas funcionalidades serão adicionadas em breve. 🚧
